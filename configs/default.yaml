@@ -1,0 +1,19 @@
+seed: 0
+n_seeds: 5            # seeds for mean +/- std
+n_splits: 5           # group k-fold
+window_insts: 1000    # as in the IOLTS paper
+stride_insts: 100
+synthetic:
+  variants_per_template: 30
+  windows_per_program: 60
+gnn:
+  hidden: 64
+  layers: 3
+  epochs: 60
+  lr: 0.003
+  batch_size: 128
+  weight_decay: 0.0001
+  dropout: 0.2
+paths:
+  asm_dir: data/asm
+  results: results

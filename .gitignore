@@ -1,0 +1,15 @@
+__pycache__/
+results/
+*.pkl
+hw/bench_plain
+hw/bench_wrapped
+m5out/
+paper/gen/
+paper/main.aux
+paper/main.bbl
+paper/main.blg
+paper/main.fdb_latexmk
+paper/main.fls
+paper/main.log
+paper/main.out
+paper/*.png
