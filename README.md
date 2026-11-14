@@ -5,6 +5,11 @@ Patterns in RISC-V using Machine Learning and ISA-Level Masking Wrappers"* (IOLT
 New contribution: **graph-theoretic analysis and a graph neural network** over the CFG/DFG of each
 gadget, evaluated under a leakage-free protocol.
 
+> **Read this first.** This repository was rebuilt from the paper, not recovered from your original
+> code. Everything that does not need gem5 or the P550 board runs and is tested. Two parts could not be
+> tested here and **must be validated by you**: the gem5 stats parser (`sgraph/gem5_parser.py`) and
+> the board scripts (`hw/`, `scripts/perf_measure.sh`). The default data is **synthetic** and exists only
+> to prove the pipeline runs. **Never put numbers computed on synthetic data in the paper.**
 
 ## Quick start
 
@@ -117,5 +122,3 @@ make paper                                                                      
 ## License and citation
 
 Add a `LICENSE` file before making the repository public (e.g. MIT or Apache-2.0), and fill in the artifact DOI in `main.tex` after archiving a release on Zenodo.
-#   s p e c - g r a p h - r i s c v  
- 
