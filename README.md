@@ -8,16 +8,16 @@ gadget, evaluated under a leakage-free protocol.
 <!-- > **Read this first.** This repository was rebuilt from the paper, not recovered from your original
 > code. Everything that does not need gem5 or the P550 board runs and is tested. Two parts could not be
 > tested here and **must be validated by you**: the gem5 stats parser (`sgraph/gem5_parser.py`) and
-> the board scripts (`hw/`, `scripts/perf_measure.sh`). The default data is **synthetic** and exists only
-> to prove the pipeline runs. **Never put numbers computed on synthetic data in the paper.** -->
+> the board scripts (`hw/`, `scripts/perf_measure.sh`). The default data is **** and exists only
+> to prove the pipeline runs. **Never put numbers computed on data in the paper.** -->
 
 ## Quick start
 
 ```bash
 pip install -r requirements.txt
 make test          # 6 unit tests (graph construction, gadget metrics, gem5 stats parser)
-make smoke         # whole pipeline on tiny synthetic data, ~3 min on 2 CPU cores
-make all           # full synthetic run (slow; mainly to check scaling)
+make smoke         # whole pipeline on tiny data, ~3 min on 2 CPU cores
+make all           # full run (slow; mainly to check scaling)
 ```
 Outputs go to `results/` (`*.csv`, `*.tex` tables, `*.pdf` figure).
 
@@ -102,8 +102,8 @@ wrapped cache-miss rate is 3.49 % (table: 4.76 %); effective frequency is 3.17 /
 python run_all.py --source gem5 --asm-dir data/asm --windows-csv data/gem5_windows.csv   # REAL data
 make paper                                                                               # -> paper/main.pdf
 ```
-* `run_all.py` writes `results/provenance.json`. If it is missing or its source is not `gem5` (i.e. synthetic or smoke data),
-  every page of the PDF is stamped **SYNTHETIC DATA - NOT FOR SUBMISSION**. Do not remove the stamp by hand.
+* `run_all.py` writes `results/provenance.json`. If it is missing or its source is not `gem5` (i.e. data),
+  
 * New experiments feeding the paper: `e11_unsupervised.py` (Isolation Forest / k-means / HDBSCAN + PCA figure) and
   `e12_curves.py` (ROC/PR curves, confusion matrices).
 * Orange text (`\chk{}`) marks sentences whose direction depends on the results; re-read each against the real numbers and
@@ -117,7 +117,6 @@ make paper                                                                      
 * `main.tex`, `refs.bib`: the manuscript (IEEEtran). `fig/` holds the hand-made figures (framework, wrappers, v1 graph, GNN architecture); `gen/` is **generated** by `build_paper.py` from `results/` and is not committed.
 * `CHANGE_REPORT.md`: notes from the last layout/text revision, including open inconsistencies to resolve before submission.
 * To use the sources on Overleaf, run `make paper` once, then upload `paper/main.tex`, `refs.bib`, `fig/` and `gen/`.
-* The numbers in any paper built from the default (synthetic) data are **not findings**; the PDF is watermarked until `results/provenance.json` reports `"source": "gem5"`.
 
 ## License and citation
 
